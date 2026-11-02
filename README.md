@@ -73,3 +73,7 @@ If the application does not start correctly, make sure:
 - both speakers are connected to the **SPK-L** and **SPK-R** connectors.
 
 On the **first startup with the microSD card**, the card may occasionally not be detected. If this happens, **restart the panel**. The microSD card should be detected normally after the restart.
+
+## Source code
+
+Source code and build instructions: [source-code branch](https://github.com/AI-devices/FairyTales/tree/source-code).
