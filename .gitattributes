@@ -1,0 +1,6 @@
+# Large binary source assets
+assets_src/anim_mov/*.mov filter=lfs diff=lfs merge=lfs -text
+assets_src/fonts_ttf/*.ttf filter=lfs diff=lfs merge=lfs -text
+
+# Large runtime animation assets
+assets_sdcard/*.cfa filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,19 @@
+build/
+/build-*/
+managed_components/
+.vscode
+.idea/
+sdkconfig
+sdkconfig.old
+.cache
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.swp
+*.swo
+.pytest_cache/
+
+# Local media preparation output
+/.compile_mov_to_cfa/
+/sdcard_root/

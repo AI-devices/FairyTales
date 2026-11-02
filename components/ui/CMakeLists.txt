@@ -1,0 +1,58 @@
+cmake_minimum_required(VERSION 3.16)
+
+set(UI_COMMON_SRCS
+  ui.c
+  ui_TitleScreen.c
+  story_engine.c
+  story_coordinator.c
+  story_audio.c
+  story_presenter.c
+  story_media_manifest.c
+  ui_font_Font0.c
+  ui_font_Font00.c
+  ui_font_Font1.c
+  ui_font_Font3.c
+  ui_font_Font4.c
+  ui_font_Font41.c
+  ui_font_Font11.c
+  ui_font_Font22.c
+  ui_font_Font33.c
+  ui_font_Font6.c
+  ui_img_manager.c
+  ui_dual_gif_screen.c
+  ui_font_Font5.c
+  ui_font_Font51.c
+  ui_font_Font52.c
+  ui_img_bright_min_png.c
+  ui_img_bright_png.c
+  ui_img_corner_small_crop_png.c
+  ui_img_name_png.c
+  ui_img_restart_png.c
+  ui_img_sett_off_png.c
+  ui_img_sett_on_png.c
+  ui_img_vol_min_png.c
+  ui_img_vol_png.c
+  story_fairy_tale.c
+  fairy_tale/story_assets_fairy_tale.c
+  builtin_reading_texts_fairy_tale.c
+  builtin_texts_fairy_tale.c
+  user_name_store.c
+)
+
+idf_component_register(
+  SRCS
+    ${UI_COMMON_SRCS}
+  INCLUDE_DIRS
+    "include"
+  REQUIRES
+    lvgl__lvgl
+    gifdec
+    esp_rom
+    settings_store
+    ui_dispatch
+    audio_session
+    bsp_extra
+    media_pipeline
+  PRIV_REQUIRES
+    esp_timer
+)

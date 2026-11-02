@@ -1,0 +1,11 @@
+idf_component_register(
+    SRCS
+        "src/HimaxP4.cpp"
+        "src/crc.c"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        driver
+        espressif__esp32_p4_function_ev_board
+        audio_player_p4
+)

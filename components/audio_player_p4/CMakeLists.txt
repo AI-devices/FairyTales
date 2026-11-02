@@ -1,0 +1,10 @@
+idf_component_register(
+    SRCS
+        "src/AudioPlayerP4.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        driver
+        espressif__esp32_p4_function_ev_board
+        ringbuf
+)

@@ -1,0 +1,13 @@
+idf_component_register(
+    SRCS
+        "src/fairytale_runtime.c"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        audio_session
+        settings_store
+        ui
+        ui_dispatch
+        media_pipeline
+        espressif__esp32_p4_function_ev_board
+)

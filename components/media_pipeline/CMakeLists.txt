@@ -1,0 +1,16 @@
+idf_component_register(
+    SRCS
+        "src/animation_decoder.c"
+        "src/animation_cfa_decoder.c"
+        "src/media_cache.c"
+        "src/media_loader_service.c"
+        "src/media_storage.c"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        gifdec
+        lz4_block
+        espressif__esp32_p4_function_ev_board
+    PRIV_REQUIRES
+        esp_timer
+)

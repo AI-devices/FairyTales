@@ -1,0 +1,70 @@
+menu "App Configurations"
+    config HIMAX_I2C_ADDR
+        hex "Himax I2C address (unused by local-audio app)"
+        default 0x24
+        range 0x08 0x77
+
+    config HIMAX_HAVE_RESET
+        bool "Himax reset line is wired (unused by local-audio app)"
+        default y
+
+    config HIMAX_RESET_GPIO
+        int "Himax reset GPIO (unused by local-audio app)"
+        default 10
+        range -1 54
+        depends on HIMAX_HAVE_RESET
+
+    config HIMAX_READY_GPIO
+        int "Himax ready GPIO (unused by local-audio app)"
+        default -1
+        range -1 54
+
+    config FAIRYTALE_VERBOSE_RUNTIME_LOGS
+        bool "Enable verbose Fairytale runtime diagnostics"
+        default n
+        help
+            Enables detailed runtime diagnostics for story presentation,
+            GIF/CFA animation transitions, bird timing, and scene/resource
+            internals. Keep disabled for normal runs to reduce log noise.
+
+    menu "Fairytale animation pipeline"
+        config FAIRYTALE_ANIM_CFA_BOOK
+            bool "Use CFA files for book animations"
+            default n
+            help
+                Route book open/swipe/close animations to sd:/assets/*.cfa.
+                GIF remains the default fallback.
+
+        config FAIRYTALE_ANIM_CFA_BIRD
+            bool "Use CFA files for bird animations"
+            default n
+            help
+                Route bird idle/pre-talk/talk-loop animations to sd:/assets/*.cfa.
+                GIF remains the default fallback.
+
+        config FAIRYTALE_ANIM_CFA_CACHE_MAX_BYTES
+            int "Maximum CFA full-file preload size"
+            default 20971520
+            range 0 33554432
+            help
+                CFA files at or below this size may be loaded fully into PSRAM.
+                Larger files are streamed frame-by-frame from SD.
+
+        config FAIRYTALE_ANIM_CFA_FREE_PSRAM_MARGIN_BYTES
+            int "Free PSRAM margin for CFA preload"
+            default 6291456
+            range 0 33554432
+            help
+                Keep at least this much free PSRAM when deciding whether to
+                preload a CFA file.
+
+        config FAIRYTALE_ANIM_CFA_VALIDATE_PAYLOAD_CRC
+            bool "Validate CFA payload CRC during playback"
+            default n
+            help
+                Check every CFA frame payload CRC before decoding it. This is
+                useful for debugging SD corruption or compiler/runtime
+                mismatches, but it is expensive enough to disable for normal
+                playback.
+    endmenu
+endmenu

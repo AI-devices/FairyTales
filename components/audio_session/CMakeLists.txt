@@ -1,0 +1,11 @@
+idf_component_register(
+    SRCS
+        "src/audio_session.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        audio_player_p4
+        media_pipeline
+        chmorgan__esp-libhelix-mp3
+        heap
+)
